@@ -24,13 +24,13 @@ public class ProductService {
 		return repo.findAll(Sort.by(Sort.Direction.ASC,field));
 	}
 	
-	public Page<Product> findProductWithPagination(Integer offset,Integer pageSize){
-		Page<Product> products=repo.findAll(PageRequest.of(offset, pageSize));
+	public Page<Product> findProductWithPagination(Integer pageNo,Integer pageSize){
+		Page<Product> products=repo.findAll(PageRequest.of(pageNo, pageSize));
 		return products;
 	}
 	
-	public Page<Product> findProductWithPaginationAndSorting(Integer offset,Integer pageSize,String field){
-		Page<Product> products=repo.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(field)));
+	public Page<Product> findProductWithPaginationAndSorting(Integer pageNo,Integer pageSize,String field){
+		Page<Product> products=repo.findAll(PageRequest.of(pageNo, pageSize).withSort(Sort.by(field)));
 		return products;
 	}
 
